@@ -515,12 +515,17 @@ body::before{
     max-width:calc(50% - .7rem)
   }
 }
-@media(max-width:768px){
+@media(max-width:768px), (orientation: portrait){
   .video-frame{
-    max-width:min(100%,380px)
+    max-width:min(100%,380px);
+    aspect-ratio:9 / 16;
+    width:100%;
   }
   .showcase-player{
-    aspect-ratio:9/16
+    width:100%;
+    height:auto;
+    aspect-ratio:9 / 16;
+    object-fit:cover;
   }
 }
 @media(max-width:640px){
@@ -620,7 +625,7 @@ body::before{
   <section class="panel-section" id="theme-story">
     <div class="section-wrap frost-shell reveal-up">
       <p class="section-kicker">Theme Reveal Film</p>
-      <h2 class="section-heading">Watch How Duvan Chose This Theme</h2>
+      <h2 class="section-heading">Watch How Duvan Chose His Theme</h2>
       <div class="video-frame">
         <video
           class="showcase-player"
