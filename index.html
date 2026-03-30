@@ -297,6 +297,25 @@ body::before{
   border-bottom:1px solid rgba(223,247,255,.45);
   padding-bottom:.08rem
 }
+.highlight-note{
+  margin:2rem auto 0;
+  max-width:640px;
+  padding:1.15rem 1.3rem;
+  border-radius:24px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 12px 26px rgba(0,0,0,.1);
+  color:rgba(237,247,255,.92);
+  font-size:1.1rem;
+  line-height:1.6;
+  text-align:center;
+}
+.highlight-note p{
+  margin:0;
+  font-family:'Cinzel',serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
 .location-note a:hover{
   color:#ffffff;
   border-bottom-color:rgba(255,255,255,.8)
@@ -647,7 +666,6 @@ body::before{
   <section class="panel-section" id="attractions">
     <div class="section-wrap">
       <div class="reveal-up">
-        <p class="section-kicker">Celebration Highlights</p>
         <h2 class="section-heading">Event Attractions</h2>
         <p class="section-copy">From live entertainment and playful artists to sweet treats and sparkling decor, these attractions bring nonstop fun to the celebration.</p>
       </div>
@@ -699,6 +717,9 @@ body::before{
           <p class="card-copy">A balloon artist twists colorful balloons into fun animals and shapes for kids to take home.</p>
         </article>
       </div>
+      <div class="highlight-note reveal-up" style="--delay:620ms">
+        <p><strong>Dress Code:</strong><br>White &amp; Blue for all guests, couples &amp; children.</p>
+      </div>
     </div>
 
     <a class="section-cue" href="#location" aria-label="Go to location section">
@@ -709,8 +730,7 @@ body::before{
 
   <section class="panel-section" id="location">
     <div class="section-wrap frost-shell reveal-up">
-      <p class="section-kicker">Venue Details</p>
-      <h2 class="section-heading">Our<br> Onederland Location</h2>
+      <h2 class="section-heading">Our<br> 'One'derland Location</h2>
       <p class="section-copy">Join us at Patels Inn Club &amp; Resort for the celebration.</p>
       <div class="map-frame">
         <iframe
