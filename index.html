@@ -788,7 +788,6 @@ let W,H,t=0,flakes=[];
 const setSize=()=>{canvas.width=W=innerWidth;canvas.height=H=innerHeight};
 setSize();addEventListener('resize',setSize);
 
-const CHARS=['\u2744','\u2745','\u2746','\u273c','\u2747'];
 for(let i=0;i<200;i++){
   const big=i<55;
   flakes.push({
@@ -798,9 +797,8 @@ for(let i=0;i<200;i++){
     wo:Math.random()*Math.PI*2,
     ws:.006+Math.random()*.02,
     op:big?.5+Math.random()*.5:.15+Math.random()*.45,
-    char:CHARS[~~(Math.random()*CHARS.length)],
     sz:9+Math.random()*16,
-    isChar:big&&Math.random()>.4
+    isStar:big&&Math.random()>.4
   });
 }
 
@@ -819,13 +817,22 @@ for(let i=0;i<200;i++){
 
     ctx.save();
     ctx.globalAlpha=f.op;
-    if(f.isChar){
-      ctx.font=`${f.sz}px serif`;
-      ctx.textAlign='center';
-      ctx.fillStyle='#fff';
-      ctx.shadowColor='rgba(160,220,255,.95)';
+    if(f.isStar){
+      const size = f.r * 3.2;
+      ctx.strokeStyle='rgba(255,255,255,.95)';
+      ctx.lineWidth = Math.max(1, f.r * 0.7);
+      ctx.shadowColor='rgba(190,230,255,.9)';
       ctx.shadowBlur=12;
-      ctx.fillText(f.char,f.x,f.y);
+      ctx.beginPath();
+      ctx.moveTo(f.x - size, f.y);
+      ctx.lineTo(f.x + size, f.y);
+      ctx.moveTo(f.x, f.y - size);
+      ctx.lineTo(f.x, f.y + size);
+      ctx.moveTo(f.x - size * 0.7, f.y - size * 0.7);
+      ctx.lineTo(f.x + size * 0.7, f.y + size * 0.7);
+      ctx.moveTo(f.x - size * 0.7, f.y + size * 0.7);
+      ctx.lineTo(f.x + size * 0.7, f.y - size * 0.7);
+      ctx.stroke();
     } else {
       const g=ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,f.r*2.8);
       g.addColorStop(0,'rgba(255,255,255,1)');
